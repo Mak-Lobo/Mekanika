@@ -1,4 +1,151 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#about</h1>
-  <p>Find me in app/views/pages/about.html.erb</p>
+<% content_for :title, "About" %>
+
+<%
+  services = [
+    {
+      name: "Minor Service",
+      description: "Replacement of engine oil and oil filter, spark plug cleaning, air filter blowing/change, and general fluid safety check.",
+      price: "KSh 3,500 - 8,000"
+    },
+    {
+      name: "Major Service",
+      description: "Comprehensive overhaul replacing engine oil, fuel filter, air filter, spark plugs, brake fluid, coolant, and deep system checks.",
+      price: "KSh 10,000 - 22,000"
+    },
+    {
+      name: "Computerized Diagnostic Scan",
+      description: "OBD-II scanning to read electronic engine fault codes, reset dashboard warning lights, and check sensor performance.",
+      price: "KSh 2,000 - 5,000"
+    },
+    {
+      name: "Key & ECU Programming",
+      description: "Electronic Control Unit (ECU) re-flashing, engine remapping, or programming spare smart key fobs.",
+      price: "KSh 5,000 - 15,000"
+    },
+    {
+      name: "Battery Testing & Replacement",
+      description: "Terminal cleaning, voltage drop testing, supply and installation of new lead-acid or AGM vehicle batteries.",
+      price: "KSh 6,000 - 16,000"
+    },
+    {
+      name: "Computerized Wheel Alignment",
+      description: "Adjusting suspension geometry and angles (camber, caster, toe) for stable tracking and even tire wear.",
+      price: "KSh 2,000 - 4,000"
+    },
+    {
+      name: "Wheel Balancing",
+      description: "Adding counter-weights to rims to eliminate steering wheel vibration at high speeds (priced per wheel).",
+      price: "KSh 300 - 500"
+    },
+    {
+      name: "Suspension Overhaul",
+      description: "Replacement of worn shock absorbers, rubber bushings, tie rod ends, control arms, and ball joints.",
+      price: "KSh 10,000 - 30,000"
+    },
+    {
+      name: "Brake Pad Replacement",
+      description: "Installation of new front or rear brake friction pads per axle, plus caliper cleaning and pin lubrication.",
+      price: "KSh 4,500 - 12,000"
+    },
+    {
+      name: "Brake Disc Skimming",
+      description: "Resurfacing warped or uneven brake rotors using a lathe to eliminate brake pedal pulsing.",
+      price: "KSh 2,500 - 5,000"
+    },
+    {
+      name: "Clutch Replacement",
+      description: "Overhaul of manual transmission clutch plate, pressure plate, and throw-out release bearing.",
+      price: "KSh 12,000 - 30,000"
+    },
+    {
+      name: "ATF Transmission Flush",
+      description: "Draining, flushing, and refilling automatic transmission fluid (ATF) and replacing internal filters.",
+      price: "KSh 6,000 - 15,000"
+    },
+    {
+      name: "Fuel Injector Cleaning",
+      description: "Ultrasonically cleaning and flow-testing fuel injectors to improve fuel economy and idle stability.",
+      price: "KSh 4,000 - 8,000"
+    },
+    {
+      name: "AC Service & Gas Refill",
+      description: "Pressure testing the A/C loop, repairing leaks, vacuuming the system, and recharging R134a refrigerant gas.",
+      price: "KSh 3,500 - 8,000"
+    },
+    {
+      name: "Engine Overhaul",
+      description: "Full rebuild including block skimming, replacing piston rings, bearings, valves, and head gaskets.",
+      price: "KSh 60,000 - 200,000+"
+    },
+    {
+      name: "Panel Beating & Dent Repair",
+      description: "Repairing metal panel damage, pulling structural dents, and reshaping collision-damaged bodywork (per panel).",
+      price: "KSh 3,000 - 12,000"
+    },
+    {
+      name: "Spray Painting",
+      description: "Surface prep, priming, color matching, and clear-coat application in a spray booth (per panel).",
+      price: "KSh 4,000 - 8,000"
+    },
+    {
+      name: "Full-Body Respray",
+      description: "Stripping old paint, body preparation, complete repainting, and clear coating of the whole vehicle.",
+      price: "KSh 35,000 - 80,000+"
+    },
+    {
+      name: "Detailing & Machine Buffing",
+      description: "Paint correction, clay bar treatment, interior upholstery shampooing, and high-gloss wax application.",
+      price: "KSh 4,000 - 12,000"
+    }
+  ]
+%>
+
+<div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+  <section class="relative mb-10 min-h-[400px] rounded-3xl p-6 sm:p-10 lg:p-16 items-center">
+    <div 
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 -z-10 rounded-3xl" style="background-image: url(<%= asset_path('car2.jpg') %>);">
+  </div>
+
+    <div class= "flex flex-col items-center text-center bg-slate-300/10 backdrop-blur none">
+      <p class="text-md font-semibold uppercase text-2xl text-cyan-300">About Mekanika</p>
+      <p class="mt-4 max-w-3xl text-base leading-7 text-slate-200">
+        We provide a complete range of garage services, from routine maintenance to major mechanical, electrical, and bodywork jobs.
+        The list below shows the core services available at the workshop and their typical price ranges in Kenyan shillings.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 lg:grid-cols-2">
+      <article class="rounded-2xl border border-white/10 bg-slate-950/70 p-6 shadow-lg shadow-black/20 backdrop-blur">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Mission</p>
+        <h2 class="mt-3 text-2xl font-bold text-white">Keep every vehicle safe, reliable, and road-ready.</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-300">
+          Our mission is to deliver honest diagnostics, quality repairs, and dependable maintenance that help drivers stay confident on the road.
+        </p>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-slate-950/70 p-6 shadow-lg shadow-black/20 backdrop-blur">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Vision</p>
+        <h2 class="mt-3 text-2xl font-bold text-white">Become the most trusted garage for modern automotive care.</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-300">
+          We aim to grow into a workshop known for skilled workmanship, transparent pricing, and long-term customer relationships.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <%# offered services %>
+  <h1 class="mb-3 text-4xl font-bold text-white text-center sm:text-5xl">Offered Services</h1>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 bg-scroll bg-local bg-cover bg-no-repeat max-h-[75vh] overflow-y-auto scrollbar-none p-4" style="background-image: url(<%= asset_path('mechanic2.webp')%>)">
+    <% services.each do |service| %>
+      <article class="group rounded-2xl border border-slate-700 bg-slate-900/80 p-6 shadow-lg shadow-black/20 transition-transform duration-200 hover:-translate-y-1 hover:border-slate-400/60 hover:shadow-cyan-900/20">
+        <div class="mb-4 flex items-start justify-between gap-4">
+          <h2 class="text-xl font-bold leading-tight text-white"><%= service[:name] %></h2>
+          <span class="shrink-0 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-300">
+            <%= service[:price] %>
+          </span>
+        </div>
+        <p class="text-sm leading-6 text-slate-300"><%= service[:description] %></p>
+      </article>
+    <% end %>
+  </div>
 </div>

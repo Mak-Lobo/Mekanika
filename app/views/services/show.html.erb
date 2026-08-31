@@ -1,0 +1,16 @@
+<div>
+  <h1 class="font-bold text-4xl">Services#show</h1>
+  <p>Find me in app/views/services/show.html.erb</p>
+  <div class="bg-gray-500 rounded-lg shadow-md p-2">
+    <p class = "font-['Helvetica'] text-md font-bold text-white text-start">Service ID: <%= @service.id%></p>
+    <div class="flex flex-col justify-end items-start ml-2 border-black border-2 rounded-sm p-1.5">
+      <p class = "font-['Helvetica'] text-md font-bold text-white">Service name: <%= @service.name %></p>
+      <p class = "font-['Helvetica'] text-md font-bold text-white">Service description: <%= @service.description %></p>
+      <p class = "font-['Helvetica'] text-md font-bold text-white">Service price: <%= @service.price %></p>
+    </div>
+  </div>
+  <%# back to index page %>
+    <div class="flex justify-end items-center mt-2">
+      <%= link_to "Back to Services", services_path, class: "font-sans font-bold border rounded-md bg-gray-500 text-gray-300 hover:bg-gray-700 w-32 h-10 flex justify-center items-center mt-2" %>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="w-full flex flex-col justify-center items-center">
+  <h1 class="font-bold text-4xl">Services#index</h1>
+  <p>Find me in app/views/services/index.html.erb</p>
+  <br>
+
+  <div class="flex justify-end items-center mb-4">
+    <%= link_to "Create New Service", new_service_path, class: "font-['Helvetica'] font-bold border rounded-md bg-blue-500 text-gray-300 hover:bg-blue-700 p-1.5 flex justify-center items-end" %>
+  </div>
+  <%# empty service list %>
+  <% if @services.empty? %>
+    <div class="bg-gray-300 text-red-600 p-4 rounded-lg mb-4 flex justify-center items-center w-full">
+      <h2 class="font-bold text-lg">No services found.</h2>
+    </div>
+  <% else %>
+
+  <%# Showing all services through a table %>
+  <table class="border border-gray-500 w-5/6 font-['Helvetica']">
+    <thead>
+      <tr class="bg-gray-500 text-white">
+        <th class="border border-black p-2">ID</th>
+        <th class="border border-black p-2">Name</th>
+        <th class="border border-black p-2">Description</th>
+        <th class="border border-black p-2">Average price</th>
+        <th class="border border-black p-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr class="bg-gray-300 text-black">
+          <td class="border border-black p-1.5"><%= service.id %></td>
+          <td class="border border-black p-1.5"><%= service.name %></td>
+          <td class="border border-black p-1.5"><%= service.description %></td>
+          <td class="border border-black p-1.5"><%= service.price %></td>
+          <td class="border border-black p-1.5">
+            <div class="flex space-x-2">
+            <%= link_to "Show", service_path(service), 
+    class: "inline px-1.5 border border-transparent rounded-md text-blue-500 font-medium transition-all duration-200 ease-in-out hover:font-bold hover:underline hover:text-blue-700 hover:bg-blue-200 hover:border-blue-500 hover:-translate-y-0.5" %>
+              <%= link_to "Edit", edit_service_path(service), 
+    class: "inline px-1.5 border border-transparent rounded-md text-black font-medium transition-all duration-200 ease-in-out hover:font-bold hover:underline hover:text-white hover:bg-orange-500 hover:border-yellow-200 hover:-translate-y-0.5" %>
+              <%= link_to "Delete", service_path(service), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure you wish to delete this service?" }, 
+    class: "inline-block px-1.5 border border-transparent rounded-md text-red-500 font-medium transition-all duration-200 ease-in-out hover:font-bold hover:underline hover:text-red-700 hover:bg-red-200 hover:border-red-500 hover:-translate-y-0.5" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  allow_unauthenticated_access only: %i[ register about ]
   def register
   end
 

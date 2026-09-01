@@ -8,8 +8,11 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  # last name to be nullable
+  validates :last_name, length: { maximum: 25 }, allow_blank: true
+
   # name validation
-  validates :first_name, :last_name, :phone_number, presence: true
+  validates :first_name, :phone_number, presence: true
 
   # full name method
   def full_name

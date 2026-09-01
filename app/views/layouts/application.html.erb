@@ -25,16 +25,16 @@
 
   <body class="bg-slate-800 text-white font-sans flex flex-col min-h-screen">
     <header class="flex items-center justify-between bg-gray-900 text-white px-2 py-2 shadow-xl shadow-slate-500/50 mb-4">
-      <h1 class="text-xl font-bold text-2xl font-baskerville"><%= Mekanika %></h1>
+      <h1 class="text-5xl font-bold uppercase font-syne mt-4"><%= Mekanika %></h1>
       <nav class="flex items-center justify-end bg-gray-900 text-white p-4">
-        <ul class="flex gap-4 p-4 font-semibold text-lg">
+        <ul class="flex gap-4 p-4 font-semibold text-lg font-inter">
           <li><%= link_to "Home", home_path, class: "hover:text-gray-400 hover:underline" %></li>
           <li><%= link_to "About", about_path, class: "hover:text-gray-400 hover:underline" %></li>
-          <%= button_to "Log out", session_path, method: :delete, class: "hover:text-gray-400 hover:underline transition-transform duration-200 hover:-translate-y-1 hover:border hover:border-white rounded-full hover:px-4" if authenticated? %>
+          <%= button_to "Log out", session_path, method: :delete, class: "hover:text-gray-400 hover:underline transition-transform duration-200 hover:-translate-y-1 hover:border hover:border-white hover:shadow-md hover:shadow-red-500/20 hover:rounded-full hover:px-4" if authenticated? %>
         </ul>
       </nav>
     </header>
-    <main class="w-full px-2 flex-1">
+    <main class="w-full px-2 flex-1 font-inter">
       <%= yield %>
     </main>
     <%# Footer %>

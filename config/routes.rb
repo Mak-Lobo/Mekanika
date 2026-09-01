@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get "sign_ups/show"
+  resource :session
+  resources :passwords, param: :token
   resources :services
+  resources :sign_ups, only: :create
   # get "services/show"
   # get "services/", to: "services#index", as: "services"
   # get "services/create"
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
 
   # post "services", to: "services#create"
 
-  get "register", to: "pages#register"
+  get "signup", to: "sign_ups#new", as: :signup
   get "home", to: "pages#home"
   get "about", to: "pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

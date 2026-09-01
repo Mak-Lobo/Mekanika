@@ -30,6 +30,7 @@
         <ul class="flex gap-4 p-4 font-semibold text-lg">
           <li><%= link_to "Home", home_path, class: "hover:text-gray-400 hover:underline" %></li>
           <li><%= link_to "About", about_path, class: "hover:text-gray-400 hover:underline" %></li>
+          <%= button_to "Log out", session_path, method: :delete, class: "hover:text-gray-400 hover:underline transition-transform duration-200 hover:-translate-y-1 hover:border hover:border-white rounded-full hover:px-4" if authenticated? %>
         </ul>
       </nav>
     </header>

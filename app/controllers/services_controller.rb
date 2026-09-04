@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [ :show, :edit, :update, :destroy ]
+  admin_access_only
+
   def show
     # @service = Service.first()
     # @service = Service.find(params[:id])

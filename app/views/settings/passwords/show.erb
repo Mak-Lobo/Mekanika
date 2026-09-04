@@ -1,0 +1,41 @@
+<% content_for :title, "Change Password" %>
+
+<div class="mx-auto w-full max-w-2xl py-8">
+  <div class="rounded-2xl border border-cyan-400/20 bg-black-500 p-6 text-white shadow-xl sm:p-10">
+    <div class="mb-8 text-center">
+      <p class="font-baskerville text-sm font-semibold uppercase tracking-[0.2em] text-cyan-500">Mekanika Garage</p>
+      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Change your password</h1>
+      <p class="mt-2 text-slate-300">Keep your Mekanika account secure with a new password.</p>
+    </div>
+
+    <%= form_with model: Current.user, url: settings_password_path, class: "space-y-5" do |form| %>
+      <% if form.object.errors.any? %>
+        <div class="rounded-lg border border-red-200 bg-red-700 p-4 text-white" role="alert">
+          <p class="font-semibold">Please correct the following errors:</p>
+          <ul class="mt-2 list-disc pl-5 text-sm">
+            <% form.object.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :password_challenge, "Current password", class: "block text-sm font-medium text-white" %>
+        <%= form.password_field :password_challenge, required: true, autocomplete: "current-password", class: "mt-2 block w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600" %>
+      </div>
+
+      <div>
+        <%= form.label :password, "New password", class: "block text-sm font-medium text-white" %>
+        <%= form.password_field :password, required: true, autocomplete: "new-password", maxlength: 72, class: "mt-2 block w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600" %>
+      </div>
+
+      <div>
+        <%= form.label :password_confirmation, "Confirm new password", class: "block text-sm font-medium text-white" %>
+        <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", maxlength: 72, class: "mt-2 block w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600" %>
+      </div>
+
+      <%= form.submit "Update password", class: "w-full cursor-pointer rounded-md bg-cyan-500 px-4 py-3 font-semibold text-white transition-all hover:-translate-y-1 hover:bg-cyan-800 hover:shadow-lg hover:shadow-cyan-500/50" %>
+    <% end %>
+  </div>
+</div>

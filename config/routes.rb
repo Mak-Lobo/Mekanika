@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   get "sign_ups/show"
+
+  # namespace for settings
+  namespace :settings do
+    resource :password, only: [:show, :update]
+    resource :profile, only: [:show, :update, :destroy]
+
+    root to: redirect("/settings/profile")
+  end
   resource :session
   resources :passwords, param: :token
   resources :services
@@ -23,6 +31,9 @@ Rails.application.routes.draw do
   get "signup", to: "sign_ups#new", as: :signup
   get "home", to: "pages#home"
   get "about", to: "pages#about"
+
+  # root of the application
+  root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

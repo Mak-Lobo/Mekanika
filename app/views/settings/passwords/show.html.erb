@@ -8,6 +8,8 @@
       <p class="mt-2 text-slate-300">Keep your Mekanika account secure with a new password.</p>
     </div>
 
+    <%= render "settings/nav", active: :password %>
+
     <%= form_with model: Current.user, url: settings_password_path, class: "space-y-5" do |form| %>
       <% if form.object.errors.any? %>
         <div class="rounded-lg border border-red-200 bg-red-700 p-4 text-white" role="alert">

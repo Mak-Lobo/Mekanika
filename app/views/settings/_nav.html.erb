@@ -1,0 +1,10 @@
+<% active = local_assigns.fetch(:active) %>
+<% base_classes = "rounded-md px-4 py-2 transition" %>
+<% inactive_classes = "text-slate-300 hover:bg-slate-800 hover:text-cyan-400" %>
+<% active_classes = "bg-cyan-500 text-white" %>
+
+<nav class="mb-8 flex flex-wrap justify-center gap-2 border-b border-slate-700 pb-4 text-sm font-semibold" aria-label="Settings">
+  <%= link_to "Profile", settings_profile_path, class: "#{base_classes} #{active == :profile ? active_classes : inactive_classes}" %>
+  <%= link_to "Password", settings_password_path, class: "#{base_classes} #{active == :password ? active_classes : inactive_classes}" %>
+  <%= link_to "Email", settings_email_path, class: "#{base_classes} #{active == :email ? active_classes : inactive_classes}" %>
+</nav>

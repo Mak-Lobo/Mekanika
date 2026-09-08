@@ -1,0 +1,19 @@
+<!--
+<h1>User#email_confirmation</h1>
+
+<p>
+  <%= @greeting %>, find me in app/views/user_mailer/email_confirmation.html.erb
+</p>
+-->
+
+<div class="bg-slate-800 p-5 font-sans text-white sm:p-10">
+  <div class="mx-auto max-w-2xl rounded-2xl border border-cyan-400/20 bg-slate-950 p-6 text-center shadow-xl sm:p-10">
+    <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-500">Mekanika Garage</p>
+    <h1 class="text-3xl font-bold sm:text-4xl">Verify your email address</h1>
+    <p class="mt-4 text-slate-300">Confirm your email address to complete your Mekanika account setup.</p>
+
+    <%= link_to "Confirm your email", email_confirmation_url(token: @token), class: "mt-7 inline-block rounded-md bg-cyan-500 px-6 py-3 font-semibold text-white transition-all hover:-translate-y-1 hover:bg-cyan-800 hover:shadow-lg hover:shadow-cyan-500/50" %>
+
+    <p class="mt-7 text-sm text-slate-400">If you did not request this change, you can safely ignore this email.</p>
+  </div>
+</div>

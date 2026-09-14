@@ -1,16 +1,21 @@
 <div>
-  <h1 class="font-bold text-4xl">Services#show</h1>
-  <p>Find me in app/views/services/show.html.erb</p>
-  <div class="bg-gray-500 rounded-lg shadow-md p-2">
-    <p class = "font-['Helvetica'] text-md font-bold text-white text-start">Service ID: <%= @service.id%></p>
-    <div class="flex flex-col justify-end items-start ml-2 border-black border-2 rounded-sm p-1.5">
-      <p class = "font-['Helvetica'] text-md font-bold text-white">Service name: <%= @service.name %></p>
-      <p class = "font-['Helvetica'] text-md font-bold text-white">Service description: <%= @service.description %></p>
-      <p class = "font-['Helvetica'] text-md font-bold text-white">Service price: <%= @service.price %></p>
+  <h1 class="font-bold text-4xl">Service details</h1>
+  <div class="bg-slate-700 rounded-lg shadow-md p-2">
+    <p class = "text-md font-bold text-white text-start">Service ID: <%= @service.id%></p>
+    <div class="flex flex-col justify-end items-start ml-2 border-black border-2 rounded-sm p-1.5 text-md font-bold text-white">
+      <p >Service name: <%= @service.name %></p>
+      <p >Service description: <%= @service.description %></p>
+      <p >Service price: <%= @service.price %></p>
+      <p> Service status: <%= @service.active == true ? "Active" : "Inactive" %></p>
+      <div class="text-xs flex flex-col self-end items-end">
+        <p>Created at: <%= @service.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
+        <p>Last updated: <%= @service.updated_at.strftime("%B %d, %Y %I:%M %p") %></p>
+      </div>
     </div>
   </div>
   <%# back to index page %>
-    <div class="flex justify-end items-center mt-2">
-      <%= link_to "Back to Services", services_path, class: "font-sans font-bold border rounded-md bg-gray-500 text-gray-300 hover:bg-gray-700 w-32 h-10 flex justify-center items-center mt-2" %>
+    <div class="flex justify-end items-center mt-2 gap-4">
+      <%= link_to "Back to Services", services_path, class: "text-xs font-bold border rounded-md p-1 bg-cyan-500 text-slate-300 hover:bg-cyan-700 w-auto h-10 flex justify-center items-center mt-2 hover:-translate-y-1 transtion-all duration-200" %>
+      <%= link_to "Create another service", new_service_path, class: "text-xs font-bold border rounded-md p-1 bg-cyan-500 text-slate-300 hover:bg-cyan-700 w-auto h-10 flex justify-center items-center mt-2 hover:-translate-y-1 transtion-all duration-200" %>
     </div>
 </div>

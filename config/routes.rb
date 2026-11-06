@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     resources :confirmations, param: :token, only: [ :show ]
   end
 
-  resource :session
+  get "/login", to: "sessions#new", as: :login
+  post "/login", to: "sessions#create", as: :session
+  delete "/logout", to: "sessions#destroy", as: :logout
+
   resources :passwords, param: :token
   resources :services
   resources :sign_ups, only: :create
